@@ -1,3 +1,5 @@
+#!/bin/sh
+
 echo "BOOSTRAP !!!"
 
 sudo pacman -S kitty hyprland
