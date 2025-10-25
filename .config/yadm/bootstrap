@@ -1,0 +1,3 @@
+echo "BOOSTRAP !!!"
+
+sudo pacman -S kitty hyprland
