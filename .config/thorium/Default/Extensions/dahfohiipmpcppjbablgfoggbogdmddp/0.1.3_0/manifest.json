@@ -1,0 +1,53 @@
+{
+   "author": "Alex313031",
+   "description": "Dark theme for Thorium Browser adhering to Material Design principles.",
+   "icons": {
+      "128": "icons/icon_128.png",
+      "16": "icons/icon_16.png",
+      "24": "icons/icon_24.png",
+      "256": "icons/icon_256.png",
+      "32": "icons/icon_32.png",
+      "48": "icons/icon_48.png",
+      "64": "icons/icon_64.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvh7vhBHZquQcJOvM1n6pM2Tkus7IPfa+UCOAu0zVJiSugADaKBRXdyvQvpMF3BeyTOb7J5axJPhqbfDb9VcEfA0IiDsq0siCmkDol/OL1YP2nxejTTrcpA14Vms0+6V7o+dz8YO/TIrUlMm9F5jfn9ajevA8OvhI3QOE4kXaSaxKNNG3P6VBrUcxuSCuINfFy/q22OT5nufF1eOS6etZ2OERCIz+H1M9LWStTeohsod8voC/eXFmCrs7Rql9/1Xp9RI3sF3esspJEup2deBT2nHIJzFmJ9hG2gtdH5+GOkVq1fuA5QrA3fHrAA+Ql9aBMrN3Fl3C1AhUNfukjQiOnQIDAQAB",
+   "manifest_version": 3,
+   "minimum_chrome_version": "88",
+   "name": "Thorium Material Dark Theme",
+   "offline_enabled": true,
+   "short_name": "Thorium Dark Theme",
+   "theme": {
+      "colors": {
+         "bookmark_text": [ 243, 243, 243 ],
+         "frame": [ 18, 18, 18 ],
+         "frame_inactive": [ 28, 30, 32 ],
+         "frame_incognito": [ 18, 18, 18 ],
+         "frame_incognito_inactive": [ 28, 30, 32 ],
+         "ntp_background": [ 36, 41, 47 ],
+         "ntp_section": [ 36, 41, 47 ],
+         "omnibox_background": [ 18, 18, 18 ],
+         "omnibox_text": [ 255, 255, 255 ],
+         "tab_background_text": [ 255, 255, 255 ],
+         "tab_background_text_inactive": [ 255, 255, 255 ],
+         "tab_background_text_incognito": [ 255, 255, 255 ],
+         "tab_background_text_incognito_inactive": [ 255, 255, 255 ],
+         "tab_text": [ 255, 255, 255 ],
+         "toolbar": [ 36, 41, 47 ],
+         "toolbar_text": [ 255, 255, 255 ]
+      },
+      "images": {
+         "theme_ntp_attribution": "images/attribution.png",
+         "theme_ntp_background": "images/theme_ntp_background_norepeat.jpg"
+      },
+      "properties": {
+         "ntp_background_alignment": "center",
+         "ntp_logo_alternate": 1
+      },
+      "tints": {
+         "buttons": [ -1, 1, 1 ]
+      }
+   },
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "0.1.3",
+   "version_name": "0.1.3"
+}

@@ -1,0 +1,44 @@
+{
+   "action": {
+      "default_icon": {
+         "19": "assets/icon19.png",
+         "38": "assets/icon38.png"
+      }
+   },
+   "author": "Alex313031",
+   "background": {
+      "service_worker": "background.js"
+   },
+   "commands": {
+      "_execute_action": {
+         "suggested_key": {
+            "chromeos": "Alt+P",
+            "linux": "Alt+P",
+            "mac": "Alt+P",
+            "windows": "Alt+P"
+         }
+      }
+   },
+   "description": "Watch video using the Picture-in-Picture API.",
+   "homepage_url": "https://github.com/Alex313031/picture-in-picture-viewer",
+   "host_permissions": [ "\u003Call_urls>" ],
+   "icons": {
+      "128": "assets/icon128.png",
+      "16": "assets/icon16.png",
+      "24": "assets/icon24.png",
+      "256": "assets/icon256.png",
+      "32": "assets/icon32.png",
+      "48": "assets/icon48.png",
+      "64": "assets/icon64.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnLzK0WaMLhBgEBaPfKYjXJKUUseHuFP0MakFAEIoxTmz9qlxR1ZlYo9xhCoBgQIK4akeGl0GlFyn7kpoXuRnU1EJePMexjXDVD1AV48otg6W/1ZZAplmeZLn1bUg3Zqq5Vh0Z0jVyGmYqyIUTBT7GJrZ3nynrbG84tcN6rvpIXEwIIQ1JJj5Y1xG0a0Eehf/omjOzYi+5cOjnB/uerItmlAGx4XoIplAA2quPBPl3U9m24N0mA2y6pmZqrgN8Eic9OLzFh95g0E3MZ5Gsnq4Ai8N7JFx3LJdPYOAb04tXgYKqdKvKBymBoSXd5ARAe1JJzmtV05ngxEQ+m4JEMCGIQIDAQAB",
+   "manifest_version": 3,
+   "minimum_chrome_version": "88",
+   "name": "Picture-in-Picture Viewer",
+   "offline_enabled": true,
+   "permissions": [ "scripting" ],
+   "short_name": "PiP Viewer",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.12.2",
+   "version_name": "1.12.2"
+}
