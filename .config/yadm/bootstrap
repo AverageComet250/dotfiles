@@ -15,4 +15,4 @@ source ~/.bashrc
 
 yay -S kitty hyprland bibata-cursor-theme-bin bluez bluez-utils brightnessctl cava fzf hyprpaper hyprpolkitagent lazygit less luarocks mako neofetch neovim nmap noto-fonts nvm nwg-look oh-my-posh qt5-wayland qt5ct qt6-wayland qt6ct ripgrep rofi spotify thorium-browser traceroute ttf-jetbrains-mono ttf-liberation waybar webkit2gtk wget wireplumber wl-clipboard xdg-desktop-portal-hyprland
 
-sudo pacman -S tree-sitter-cli python-pygobject
+sudo pacman -S tree-sitter-cli python-gobject
