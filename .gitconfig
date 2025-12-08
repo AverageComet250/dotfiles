@@ -1,5 +1,10 @@
 [user]
 	email = shravan@mandava8.com
 	name = Shravan Mandava
+	signingkey = /home/comet/.ssh/id_ed25519.pub
 [core]
 	editor = nvim
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
