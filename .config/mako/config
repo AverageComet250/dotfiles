@@ -1,0 +1,12 @@
+on-button-left=invoke-default-action
+on-button-middle=dismiss-all
+on-button-right=dismiss
+on-touch=invoke-default-action
+
+font=Iosevka Etoile 11
+width=400
+height=80
+
+max-history=10
+default-timeout=10000
+max-visible=3
