@@ -1,0 +1,2 @@
+visualizer_data_source = "/tmp/mpd.fifo"
+visualizer_output_name = "Visualizer Loopback"
