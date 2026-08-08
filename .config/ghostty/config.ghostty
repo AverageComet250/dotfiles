@@ -1,0 +1,10 @@
+theme = Kitty Default
+
+window-padding-x = 6
+window-padding-y = 6
+
+background-opacity = 0.5
+background-blur = 16
+
+font-family = "Iosevka Term Slab"
+font-size = 13
