@@ -1,8 +1,22 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+## Modified to only run when not in tty
+
+if [[ $TERM != "linux" ]] && [[ -f /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme ]]; then
+    hyfetch -C ~/.config/hyfetch-mini.json
+    task "urg > 8"
+
+    if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+      source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+    fi
+fi
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-setopt autocd extendedglob notify
+setopt extendedglob notify noflowcontrol
 unsetopt beep nomatch
 bindkey -e
 # End of lines configured by zsh-newuser-install
@@ -12,33 +26,25 @@ zstyle :compinstall filename '/home/comet/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+
+
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
+
+export REPORTTIME=30
+
+### Setup Completion ###
+
 zstyle ':completion:*' menu select
 zstyle ':completion::complete:*' gain-privileges 1
-#source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-# source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
-#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-export YSU_MODE=ALL
-source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh
+zstyle ':completion:*' file-patterns '*:globbed-files'
+zstyle ':completion:*' matcher-list ''
 
+# convert to fpath based
 # external autocompletes
-source ~/.config/typst.zsh
-source ~/.config/warp.zsh
-source ~/.config/rustup.zsh
-# source ~/.config/cargo.zsh
-
-
-### Prompt ###
-autoload -Uz promptinit
-promptinit
-
-prompt_comet_setup() {
-  PROMPT='%F{green}%m%f %F{blue}%~%f %# '
-  # RPROMPT='%F{yellow}[%*]%f'
-}
-
-prompt_themes+=( comet )
-prompt comet
+### Currently Broken !!! ###
+# for file in ~/.config/completes/**/*(.); do source $file; done
 
 
 ### Setup Movement Keybinds ###
@@ -51,6 +57,7 @@ key[Home]="${terminfo[khome]}"
 key[End]="${terminfo[kend]}"
 key[Insert]="${terminfo[kich1]}"
 key[Backspace]="${terminfo[kbs]}"
+
 key[Delete]="${terminfo[kdch1]}"
 key[Up]="${terminfo[kcuu1]}"
 key[Down]="${terminfo[kcud1]}"
@@ -85,33 +92,121 @@ if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
 fi
 
 
-export REPORTTIME=30
+
+### Prompt ###
+autoload -Uz promptinit
+promptinit
+
+prompt_comet_setup() {
+    PROMPT='%F{green}%m%f %F{blue}%~%f %# '
+    RPROMPT='%F{yellow}[%*]%f'
+}
+
+prompt_themes+=( comet )
+
+if [[ $TERM == "linux" ]] || [[ ! -f /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme ]]; then
+    prompt comet
+else
+    source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+
+    # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+    [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+fi
+
+if [[ -f "/usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh" ]]; then
+    export YSU_MODE=ALL
+    source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh
+fi
+
+autoload -Uz zcalc
+
+
 
 ### Better Builtins ###
 
-source <(fzf --zsh)
-eval "$(zoxide init zsh --cmd cd)"
+if (( $+commands[fzf] )); then
+    source <(fzf --zsh)
+fi
 
-source /usr/share/nvm/init-nvm.sh
+if (( $+commands[zoxide] )); then
+    eval "$(zoxide init zsh --cmd cd)"
+fi
 
-alias ls="eza"
-alias ll="eza -lbF --git --hyperlink"
-alias la="eza -lbaF"
-alias llx="eza -lbhHigUmuSa@ --time-style=long-iso --git --color-scale --hyperlink --icons=always"
-alias lt='eza -T --hyperlink --icons=always'
+if [[ -f "/usr/share/nvm/init-nvm.sh" ]]; then
+    source /usr/share/nvm/init-nvm.sh
+fi
 
-alias cat="bat -pp"
-alias less="bat --paging=always"
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-export MANROFFOPT="-c"
+if (( $+commands[eza] )); then
+    alias ls="eza --hyperlink=always"
+    alias ll="eza -lbF --git --hyperlink --group-directories-first --icons=always"
+    # alias ll="eza -lbF --git --hyperlink --icons=always"
+    alias la="eza -lbaF --hyperlink --group-directories-first --icons=always"
+    alias llx="eza -lbhHigUmuSa@ --time-style=long-iso --git --color-scale --hyperlink --icons=always"
+    alias lt='eza -T --hyperlink --icons=always'
+else
+    alias ll="ls -l"
+fi
 
-alias icat="kitten icat"
-alias vim="nvim"
+if (( $+commands[bat] )); then
+    alias cat="bat -pp"
+    alias less='bat --paging=always --decorations=never --color=always'
+    export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+    export MANROFFOPT="-c"
+fi
 
-alias inet="ip -c a | grep inet"
-alias ipa="ip --brief --color a"
-alias ip="ip -c"
+if (( $+commands[rg] )); then
+    alias grep="rg --color=always -i"
+fi
 
-# alias sudo='sudo '
-export SUDO_PROMPT="sudo ==> %u@%h $(tput setaf 196) $(tput sgr0)$(tput cnorm)" # yellow 226
-# export SUDO_PROMPT="$(tput setab 1 setaf 7 bold)[sudo]$(tput sgr0) $(tput setaf 6)password for$(tput sgr0) $(tput setaf 5)%p$(tput sgr0): "
+if [[ $TERM == "xterm-kitty" ]]; then
+    alias icat="kitten icat"
+    alias ssh='kitten ssh'
+else
+    alias icat="echo please use kitty"
+fi
+
+if (( $+commands[ip] )); then
+    alias inet="ip -c a | grep inet"
+    alias ipa="ip --brief --color a"
+    alias ip="ip -c"
+else
+    alias inet="ifconfig | grep inet"
+fi
+
+if (( $+commands[nvim] )); then
+    alias vim=nvim
+    export EDITOR='/usr/bin/nvim'
+fi
+
+if (( $+commands[hyfetch] )); then
+    alias fastfetch=hyfetch
+    alias neofetch=hyfetch
+fi
+
+task() {
+    if [[ "$1" == "add" && "$*" != *project:* ]]; then
+        command task add project:life "${@:2}"
+    elif [[ "$1" == "sync" ]]; then
+        command task sync
+        command trellowarrior -v sync
+    else
+        command task "$@"
+    fi
+
+    command task list 2>&1 | tail -n 1 | grep -q "Sync" && command task sync
+}
+
+if (( $+commands[zsh-patina] )); then
+    eval "$(zsh-patina activate)"
+fi
+
+alias cll='clear && ll'
+alias open=xdg-open
+alias datem="date -I"
+alias tenki="tenki --mode rain --wind only-right --show-fps --level 500"
+alias rm="rm -v"
+alias zat="zathura --fork"
+alias notes="nvim ~/vault/daily/$(date -I).md"
+
+export SUDO_PROMPT="[sudo] %u@%h ==> "
+export CMAKE_GENERATOR=Ninja
