@@ -1,0 +1,9 @@
+#!/usr/bin/zsh
+
+# ln -sfn "$(awww query -n wallpaper -j | jq -r '.[].[0].displaying.image')" ~/.config/current_wall
+local file=$(print -rl -- ~/.config/walls/*(.) | shuf -n 1)
+
+ln -sfn "${file:A}" ~/.config/current_wall
+magick -monitor ~/.config/current_wall -blur 0x12 ~/.config/current_wall_blurred
+awww img -n wallpaper -t random --transition-duration 1 $file
+awww img -n overview -t random --transition-duration 1 ~/.config/current_wall_blurred
