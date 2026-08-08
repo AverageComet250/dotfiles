@@ -1,0 +1,58 @@
+# [Created by task 3.4.2 3/22/2026 14:19:27]
+data.location=/home/comet/.task
+news.version=3.4.2
+
+# To use the default location of the XDG directories,
+# move this configuration file from ~/.taskrc to ~/.config/task/taskrc and update location config as follows:
+
+#data.location=~/.local/share/task
+#hooks.location=~/.config/task/hooks
+
+# Color theme (uncomment one to use)
+#include light-16.theme
+#include light-256.theme
+#include bubblegum-256.theme
+#include dark-16.theme
+#include dark-256.theme
+#include dark-red-256.theme
+#include dark-green-256.theme
+#include dark-blue-256.theme
+#include dark-violets-256.theme
+#include dark-yellow-green.theme
+#include dark-gray-256.theme
+#include dark-gray-blue-256.theme
+#include solarized-dark-256.theme
+#include solarized-light-256.theme
+#include no-color.theme
+
+uda.trelloid.type=string
+uda.trelloid.label=Trello ID
+uda.trellolistname.type=string
+uda.trellolistname.label=Trello List Name
+sync.server.url=[get your own task server]
+sync.server.client_id[gen a new uuid]
+sync.encryption_secret=[no you can't have my password]
+recurrence=on
+uda.reviewed.type=date
+uda.reviewed.label=Reviewed
+report._reviewed.description=Tasksh review report.  Adjust the filter to your needs.
+report._reviewed.columns=uuid
+report._reviewed.sort=reviewed+,modified+
+report._reviewed.filter=( reviewed.none: or reviewed.before:now-6days ) and ( +PENDING or +WAITING )
+#report.minimal.sort=urgency-,project+\/,description+
+#report.minimal.filter=status:pending -WAITING -BLOCKED limit:page
+weekstart=monday
+report.custom.columns=id,project,tags.count,description.count
+report.custom.context=1
+report.custom.description=custom minimal\/next report
+report.custom.labels=ID,Project,Tags,Description
+report.custom.filter=status:pending -WAITING -BLOCKED limit:20
+report.custom.sort=urgency-,project+\/,description+
+report.personal.columns=id,project,tags.count,description.count
+report.personal.context=1
+report.personal.description=no tasks marked as schoolwork
+report.personal.labels=ID,Project,Tags,Description
+report.personal.filter=status:pending -WAITING -BLOCKED -chemistry -compsci -maths -portfolio -project limit:page
+report.personal.sort=urgency-,project+\/,description+
+default.command=custom
+journal.info=off
