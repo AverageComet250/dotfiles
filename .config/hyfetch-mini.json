@@ -1,0 +1,18 @@
+{
+    "preset": "pansexual",
+    "mode": "rgb",
+    "auto_detect_light_dark": true,
+    "light_dark": "dark",
+    "lightness": 0.5,
+    "color_align": {
+        "mode": "horizontal"
+    },
+    "backend": "macchina",
+    "args": null,
+    "distro": "arch_small",
+    "pride_month_disable": false,
+    "custom_ascii_path": "/home/comet/.config/hyfetch-mini.art",
+    "custom_presets": null,
+    "palette_glyph": "████",
+    "palette_type": "Light"
+}
