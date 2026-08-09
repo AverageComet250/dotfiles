@@ -4,6 +4,7 @@ echo "BOOSTRAP !!!"
 
 yadm checkout /home/comet/
 
+# yay
 sudo pacman -S --needed git base-devel
 git clone https://aur.archlinux.org/yay.git
 cd yay
@@ -11,14 +12,46 @@ makepkg -si
 cd ..
 rm -rf yay
 
-source ~/.bashrc
+# network, bt, audio
+yay -S bluez bluez-utils nmap traceroute wget wireplumber
 
-sudo pacman -S bluez bluez-utils nmap traceroute wget
+# critical shell tools
+yay -S zsh zsh-completions bat neovim ripgrep fzf zoxide eza
 
-yay -S lazygit less fastfetch neovim oh-my-posh nvm ripgrep fzf
+# devtools and non-critical shell tools
+yay -S lazygit zsh-theme-powerlevel10k zsh-you-should-use zsh-patina-git nvm hyfetch fastfetch python3 task tenki
 
-yay -S hyprland bibata-cursor-theme-bin brightnessctl hyprpaper hyprpolkitagent luarocks mako noto-fonts nwg-look qt5-wayland qt5ct qt6-wayland qt6ct ttf-jetbrains-mono ttf-liberation waybar webkit2gtk wireplumber wl-clipboard xdg-desktop-portal-hyprland
+# desktop
+yay -S niri bibata-cursor-theme-bin brightnessctl awww hypridle hyprlock polkit-kde-agent mako waybar wl-clipboard xdg-desktop-portal-gnome xdg-desktop-portal-gtk
 
-yay -S kitty cava feishin spotify zen-browser-bin rofi
+# qt5-wayland qt5ct qt6-wayland qt6ct
+# qt5-multimedia
 
-sudo pacman -S tree-sitter-cli python-gobject
+
+# fonts
+yay -S noto-fonts ttf-jetbrains-mono ttf-liberation ttf-nerd-fonts-symbols
+
+# cancel iosevka if low space
+printf "Install Iosevka? [Y/n] "
+if ! read -r -t 30 answer; then
+    answer="y"
+    printf '\n'
+fi
+
+case "$answer" in
+    ""|[Yy]|[Yy][Ee][Ss])
+        yay -S ttc-iosevka ttc-iosevka-aile ttc-iosevka-etoile ttc-iosevka-slab ttc-iosevka-ss14
+        ;;
+    *)
+        ;;
+esac
+
+
+# desktop non-critical
+yay -S niri-screen-time-git niri-sidebar-git waybar-niri-windows-git
+
+# desktop tools
+yay -S kitty spotify zen-browser-bin rofi
+
+# other deps
+yay -S tree-sitter-cli python-gobject
