@@ -1,84 +1,154 @@
-
 {
-    "position": "top", // Waybar position (top|bottom|left|right)
-    "modules-left": ["mpd", "custom/media"],
-    "modules-center": ["hyprland/window"],
-    "modules-right": ["wireplumber", "network","memory","battery","clock", "tray"],
-    "hyprland/submap": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
-    "mpd": {
-        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ ",
-        "format-disconnected": "Disconnected ",
-        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-        "unknown-tag": "N/A",
-        "interval": 2,
-        "consume-icons": {
-            "on": " "
-        },
-        "random-icons": {
-            "off": "<span color=\"#f53c3c\"></span> ",
-            "on": " "
-        },
-        "repeat-icons": {
-            "on": " "
-        },
-        "single-icons": {
-            "on": "1 "
-        },
-        "state-icons": {
-            "paused": "",
-            "playing": ""
-        },
-        "tooltip-format": "MPD (connected)",
-        "tooltip-format-disconnected": "MPD (disconnected)"
-    },
-    "tray": {
-        "spacing": 10
-    },
-    "clock": {
-        "format": "{:%I:%M}",
-        "format-alt": "{:%Y-%m-%d}",
-        "tooltip": false
-    },
-    "memory": {
-        "format": "  {}%"
-    },
-    "battery": {
-        "states": {
-            "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "󰁹 {capacity}%",
-        "format-charging": "󰂄 {capacity}%",
-        "format-plugged": "  {capacity}%",
-        "format-alt": "{time}"
-    },
-    "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interfac
-        "format-wifi": "{essid} ({signalStrength}%)  ",
-        "format-ethernet": "{ifname}: {ipaddr}/{cidr}  ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
-    },
-    "wireplumber": {
-        // "scroll-step": 1, // %, can be a float
-        "format": "{volume}%  {format_source}",
-        "format-bluetooth": "{volume}%  {format_source}",
-        "format-bluetooth-muted": "  {format_source}",
-        "format-muted": "  {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": " ",
-        "on-click": "pwvucontrol"
-    },
-    "custom/media": {
-        "format": " {}",
-        "return-type": "json",
-        "max-length": 40,
-        "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+  "position": "top", // Waybar position (top|bottom|left|right)
+  // "modules-left": [
+  //   "niri/workspaces",
+  //   "hyprland/workspaces",
+  //   "hyprland/workspaces#taskbar",
+  //   "custom/niri-windows",
+  //   "mpd",
+  //   "custom/media"
+  // ],
+  "modules-left": [
+    "niri/workspaces",
+    // "cffi/niri-taskbar",
+    "custom/niri-windows",
+    "mpd",
+    "custom/media"
+  ],
+  // "modules-left": ["wlr/taskbar", "mpd", "custom/media"],
+  // "modules-left": ["cffi/niri-taskbar", "custom/niri-windows", "mpd", "custom/media"],
+  "modules-center": [
+    "niri/window",
+    "hyprland/window"
+  ],
+  "modules-right": [
+    "niri/language",
+    "wireplumber",
+    "network",
+    "memory",
+    "battery",
+    "clock",
+    "tray"
+  ],
+  "hyprland/workspaces": {
+    "active-only": false,
+    "format": "{icon}" //,
+    // "workspace-taskbar": {
+    //   "enable": true,
+    //   "update-active-window": true,
+    //   "format": "{icon}",
+    //   // "format": "●",
+    //   "icon-size": 16
+    // }
+  },
+  "hyprland/workspaces#taskbar": {
+    "active-only": true,
+    "format": "{windows}",
+    "workspace-taskbar": {
+      "enable": true,
+      "update-active-window": true,
+      "format": "{icon}",
+      // "format": "●",
+      "icon-size": 16
     }
+  },
+  "mpd": {
+    "server": "localhost",
+    // "server": "crystal.local",
+    // "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ ",
+    "format": "{stateIcon} {artist} - {title} ({songPosition}|{queueLength})",
+    "format-disconnected": "Disconnected ",
+    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+    "unknown-tag": "N/A",
+    "interval": 2,
+    "consume-icons": {
+      "on": " "
+    },
+    "random-icons": {
+      // "off": "<span color=\"#f53c3c\"></span> ",
+      "on": " "
+    },
+    "repeat-icons": {
+      "on": " "
+    },
+    "single-icons": {
+      "on": "1 "
+    },
+    "state-icons": {
+      "paused": "",
+      "playing": ""
+    },
+    // "tooltip-format": "MPD (connected)",
+    // "tooltip-format-disconnected": "MPD (disconnected)"
+  },
+  "tray": {
+    "spacing": 10
+  },
+  "clock": {
+    "format": "{:%H:%M}",
+    "format-alt": "{:%Y-%m-%d}",
+    "tooltip": false
+  },
+  "memory": {
+    "format": "  {}%"
+  },
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "󰁹 {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": "  {capacity}%",
+    "format-alt": "{time}"
+  },
+  "power-profiles-daemon": {
+    "format": "{icon}   {profile}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
+  },
+  "network": {
+    // "interface": "wlp2*", // (Optional) To force the use of this interfac
+    "format-wifi": "{essid} ({signalStrength}%)  ",
+    "format-ethernet": "{ifname}: {ipaddr}/{cidr}  ",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "Disconnected ",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+  },
+  "wireplumber": {
+    // "scroll-step": 1, // %, can be a float
+    "format": "{volume}%  {format_source}",
+    "format-bluetooth": "{volume}%  {format_source}",
+    "format-bluetooth-muted": "  {format_source}",
+    "format-muted": "  {format_source}",
+    "format-source": "{volume}% ",
+    "format-source-muted": " ",
+    "on-click": "pwvucontrol"
+  },
+  "custom/niri-windows": {
+    "exec": "waybar-niri-windows",
+    "return-type": "json",
+    "restart-interval": 1,
+    "hide-empty-text": true
+  },
+  "cffi/niri-taskbar": {
+    "module_path": "/usr/lib/waybar/libniri_taskbar.so"
+  },
+  "custom/media": {
+    "format": "{}",
+    "return-type": "json",
+    // "max-length": 40,
+    "escape": true,
+    // "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+    // "exec": "$HOME/.config/waybar/mediaplayer.py --player Feishin 2> /dev/null" // Script in resources folder
+    // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify --player kew 2> /dev/null" // Filter player based on name
+    "exec": "$HOME/.config/waybar/mediaplayer.py -x firefox 2> /dev/null" // Filter player based on name
+  }
 }
