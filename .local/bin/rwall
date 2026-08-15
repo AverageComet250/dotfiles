@@ -1,7 +1,12 @@
 #!/usr/bin/zsh
 
-# ln -sfn "$(awww query -n wallpaper -j | jq -r '.[].[0].displaying.image')" ~/.config/current_wall
-local file=$(print -rl -- ~/.config/walls/*(.) | shuf -n 1)
+local current=$(awww query -n wallpaper -j | jq -r '.[].[0].displaying.image')
+local file=$current
+
+while [[ "$current" == "$file" ]]; do
+    local file=$(print -rl -- ~/.config/walls/*(.) | shuf -n 1)
+    echo $file
+done
 
 ln -sfn "${file:A}" ~/.config/current_wall
 magick -monitor ~/.config/current_wall -blur 0x12 ~/.config/current_wall_blurred
