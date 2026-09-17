@@ -60,11 +60,17 @@
 
   users.defaultUserShell = pkgs.zsh;
 
-  hjem.users.comet.enable = true;
+  hjem.users.comet = {
+    files = {
+      ".zshrc".source = ./.zshrc;
+      ".p10k.zsh".source = ./.p10k.zsh;
+    };
+  };
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
+    zsh-powerlevel10k
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     librewolf
     alacritty
@@ -72,7 +78,10 @@
   ];
 
   programs.nano.enable = false;
+
   programs.zsh.enable = true;
+  programs.zsh.promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme; [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh ";
+
   programs.git.enable = true;
 
   programs.niri.enable = true;
