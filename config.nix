@@ -115,19 +115,6 @@
     ];
   };
 
-  programs.sway = {
-    enable = false;
-    extraPackages = with pkgs; [
-      brightnessctl
-      kitty
-      grim
-      pulseaudio
-      swayidle
-      swaylock
-      wmenu
-    ];
-  };
-
   services.greetd = {
     enable = true;
     settings = {
