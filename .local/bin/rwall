@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/usr/bin/env zsh
 
 local current=$(awww query -n wallpaper -j | jq -r '.[].[0].displaying.image')
 local file=$current

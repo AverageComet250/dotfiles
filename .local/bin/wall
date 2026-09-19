@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/usr/bin/env zsh
 
 # ln -sfn "$(awww query -n wallpaper -j | jq -r '.[].[0].displaying.image')" ~/.config/current_wall
 if [ "$#" -le 0 ]; then echo "pick an img"; exit 2; fi
