@@ -12,6 +12,7 @@
   outputs = inputs: {
     nixosConfigurations."erzatz" = inputs.nixpkgs.lib.nixosSystem {
       modules = [
+        ./hw/erzatz.nix
         ./config.nix
         ./neovim.nix
         inputs.hjem.nixosModules.default
