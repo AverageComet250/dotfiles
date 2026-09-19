@@ -30,4 +30,13 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  # Configure keymap in X11
+  services.xserver.xkb = {
+    layout = "gb";
+    variant = "";
+  };
+
+  # Configure console keymap
+  console.keyMap = "uk";
 }
