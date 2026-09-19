@@ -64,6 +64,8 @@
     files = {
       ".zshrc".source = ./.zshrc;
       ".p10k.zsh".source = ./.p10k.zsh;
+      ".config/nvim/lua".source = ./.config/nvim/lua;
+      ".config/nvim/init.lua".source = ./.config/nvim/init.lua;
     };
   };
 
@@ -73,6 +75,9 @@
     zsh-powerlevel10k
     librewolf
     alacritty
+    tree-sitter
+    ripgrep
+    fzf
     wget
   ];
 
