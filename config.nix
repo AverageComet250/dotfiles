@@ -107,8 +107,6 @@
       };
     };
   };
-
-  nixpkgs.hostPlatform = "x86_64-linux";
   
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
