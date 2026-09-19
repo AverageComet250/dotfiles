@@ -35,17 +35,6 @@
   environment.systemPackages = with pkgs; [
     zsh-powerlevel10k
     librewolf
-    kitty
-    waybar
-    mako
-    awww
-    rofi
-    hyprlock
-    hypridle
-    hyprpolkitagent # wasn't sure which pkg for polkit-kde-agent
-    wl-clipboard
-    bibata-cursors
-    brightnessctl
     tree-sitter
     ripgrep
     fzf
@@ -56,20 +45,12 @@
     hyfetch
   ];
 
-
-  # TODO: manage above services using nix
-  # First, these need to be managed using systemd
-  # hyprlock, hyrpidle, waybar, zsh, editor
-
   programs.nano.enable = false;
 
   programs.zsh.enable = true;
   programs.zsh.promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme; [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh ";
 
   programs.git.enable = true;
-
-  programs.niri.enable = true;
-  # programs.waybar.enable = true;
 
   fonts = {
     enableDefaultPackages = true;
