@@ -272,6 +272,7 @@ spawn-at-startup "awww-daemon" "-n" "overview"
 spawn-at-startup "hypridle"
 spawn-at-startup "niri-sidebar" "listen"
 spawn-sh-at-startup "niri-screen-time --daemon &"
+spawn-sh-at-startup "wlsunset -l 52.2 -L -1.7"
 spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
