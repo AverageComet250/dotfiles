@@ -64,6 +64,15 @@
     files = {
       ".zshrc".source = ./.zshrc;
       ".p10k.zsh".source = ./.p10k.zsh;
+      ".config/hyfetch.json".source = ./.config/hyfetch.json;
+      ".config/hyfetch-mini.json".source = ./.config/hyfetch-mini.json;
+      ".config/hyfetch-mini.art".source = ./.config/hyfetch-mini.art;
+      ".config/macchina/macchina.toml".source = ./.config/macchina/macchina.toml;
+      ".config/niri".source = ./.config/niri;
+      ".config/waybar".source = ./.config/waybar;
+      ".config/rofi".source = ./.config/rofi;
+      ".config/walls".source = ./.config/walls;
+      ".config/kitty".source = ./.config/kitty;
       ".config/nvim/lua".source = ./.config/nvim/lua;
       ".config/nvim/init.lua".source = ./.config/nvim/init.lua;
     };
@@ -74,12 +83,31 @@
   environment.systemPackages = with pkgs; [
     zsh-powerlevel10k
     librewolf
-    alacritty
+    kitty
+    waybar
+    mako
+    awww
+    rofi
+    hyprlock
+    hypridle
+    hyprpolkitagent # wasn't sure which pkg for polkit-kde-agent
+    wl-clipboard
+    bibata-cursors
+    brightnessctl
     tree-sitter
     ripgrep
     fzf
     wget
+
+    fastfetch
+    macchina
+    hyfetch
   ];
+
+
+  # TODO: manage above services using nix
+  # First, these need to be managed using systemd
+  # hyprlock, hyrpidle, waybar, zsh, editor
 
   programs.nano.enable = false;
 
@@ -89,6 +117,16 @@
   programs.git.enable = true;
 
   programs.niri.enable = true;
+  # programs.waybar.enable = true;
+
+  fonts = {
+    enableDefaultPackages = true;
+    packages = with pkgs; [
+      jetbrains-mono
+      nerd-fonts.jetbrains-mono
+      iosevka
+    ];
+  };
 
   programs.sway = {
     enable = false;
