@@ -14,6 +14,7 @@
       modules = [
         ./hw/erzatz.nix
         ./config.nix
+        ./niri.nix
         ./comet.nix
         ./neovim.nix
         inputs.hjem.nixosModules.default
