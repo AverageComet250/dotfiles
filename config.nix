@@ -71,6 +71,7 @@
       ".config/niri".source = ./.config/niri;
       ".config/waybar".source = ./.config/waybar;
       ".config/rofi".source = ./.config/rofi;
+      ".config/hypr".source = ./.config/hypr;
       ".config/walls".source = ./.config/walls;
       ".config/kitty".source = ./.config/kitty;
       ".config/nvim/lua".source = ./.config/nvim/lua;
