@@ -11,11 +11,14 @@
 
   outputs = inputs: {
     nixosConfigurations."erzatz" = inputs.nixpkgs.lib.nixosSystem {
+     specialArgs = {
+        root = ./.;
+      };
       modules = [
         ./hw/erzatz.nix
         ./config.nix
         ./niri.nix
-        ./comet.nix
+        ./users/comet.nix
         ./neovim.nix
         inputs.hjem.nixosModules.default
       ];
