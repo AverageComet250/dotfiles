@@ -8,6 +8,12 @@
     packages = with pkgs; [];
   };
 
+  # TODO: move to an authorizedKeys file
+
+  users.users."comet".openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDu0EUDsxrGJTW8WIhtwJRMbiSnzyK66A4U8smaL5WQJ shravan@mandava8.com"
+  ];
+
   hjem.users.comet = {
     files = {
       ".zshrc".source = "${root}/.zshrc";

@@ -18,6 +18,7 @@
         ./hw/erzatz.nix
         ./config.nix
         ./niri.nix
+        ./ssh.nix
         ./users/comet.nix
         ./neovim.nix
         inputs.hjem.nixosModules.default
