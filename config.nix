@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   # Use the systemd-boot EFI boot loader.
@@ -30,6 +30,11 @@
     LC_TIME = "en_GB.UTF-8";
   };
 
+  # nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+      "spotify"
+  ];
+
   users.defaultUserShell = pkgs.zsh;
 
   environment.systemPackages = with pkgs; [
@@ -39,6 +44,8 @@
     ripgrep
     fzf
     wget
+
+    spotify
 
     fastfetch
     macchina
