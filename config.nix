@@ -67,12 +67,14 @@
 
   programs.git.enable = true;
 
+  # TODO: move the waybar to font fallbacks
+
   fonts = {
     enableDefaultPackages = true;
     packages = with pkgs; [
       jetbrains-mono
       nerd-fonts.jetbrains-mono
-      iosevka
+      (iosevka-bin.override { variant = "Slab"; })
     ];
   };
 
