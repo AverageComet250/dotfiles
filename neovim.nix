@@ -6,7 +6,7 @@ let
     buildInputs = [ pkgs.makeWrapper ];
     postBuild = ''
       wrapProgram $out/bin/nvim \
-        --prefix PATH : ${pkgs.lib.makeBinPath [ pkgs.gcc pkgs.cargo pkgs.rustc ]}
+        --prefix PATH : ${pkgs.lib.makeBinPath [ pkgs.gcc pkgs.cargo pkgs.rustc pkgs.gnumake ]}
     '';
   };
 in
