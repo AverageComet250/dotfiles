@@ -29,8 +29,8 @@ uda.trelloid.type=string
 uda.trelloid.label=Trello ID
 uda.trellolistname.type=string
 uda.trellolistname.label=Trello List Name
-sync.server.url=[get your own task server]
-sync.server.client_id[gen a new uuid]
+sync.server.url=http://35.179.136.57:8000
+sync.server.client_id=c8ef7288-e79a-428a-b3cc-a900cb410df3
 sync.encryption_secret=[no you can't have my password]
 recurrence=on
 uda.reviewed.type=date
