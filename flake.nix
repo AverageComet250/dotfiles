@@ -24,5 +24,20 @@
         inputs.hjem.nixosModules.default
       ];
     };
+
+    nixosConfigurations."chalice" = inputs.nixpkgs.lib.nixosSystem {
+     specialArgs = {
+        root = ./.;
+      };
+      modules = [
+        ./hw/chalice.nix
+        ./config.nix
+        ./niri.nix
+        ./ssh.nix
+        ./users/comet.nix
+        ./neovim.nix
+        inputs.hjem.nixosModules.default
+      ];
+    };
   };
 }
