@@ -22,3 +22,5 @@
 	graph = log --oneline --graph --all
 [diff]
     tool = nvimdiff
+	mnemonicprefix = true
+	algorithm = histogram
