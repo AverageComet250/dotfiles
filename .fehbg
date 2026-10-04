@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-fill '~/.walls/writing.png' 
+feh --no-fehbg --bg-fill $HOME/.config/walls/writing.png
