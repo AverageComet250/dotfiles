@@ -262,8 +262,7 @@ Monochrome
 }
 
 # syscmd(/usr/X11R7/libexec/ctwm_app_menu)
-syscmd(~/ctwm_app_menu)
-syscmd(~/ctwm/ctwm_arch_menu)
+syscmd(~.local/bin/ctwm_app_menu)
 
 menu "appmenu"
 {
