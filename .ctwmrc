@@ -261,8 +261,7 @@ Monochrome
     MapWindowBackground 	"white"
 }
 
-# syscmd(/usr/X11R7/libexec/ctwm_app_menu)
-syscmd(~.local/bin/ctwm_app_menu)
+syscmd(~/.local/bin/ctwm_app_menu)
 
 menu "appmenu"
 {

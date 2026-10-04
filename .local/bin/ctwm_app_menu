@@ -28,6 +28,11 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 #
+
+if uname | grep -q 'NetBSD'; then
+	exec /usr/X11R7/libexec/ctwm_app_menu
+fi
+
 DESKTOPFILES=$(find /usr/share/applications -name '*.desktop')
 OFS=$IFS
 IFS='
