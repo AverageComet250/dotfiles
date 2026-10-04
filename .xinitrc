@@ -105,4 +105,5 @@ fi
 
 xsetroot -cursor_name X_cursor
 ./.fehbg &
-ctwm
+
+exec ctwm -W
