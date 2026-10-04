@@ -103,5 +103,6 @@ if [ -f "$usermodmap" ]; then
     $xmodmap "$usermodmap"
 fi
 
+xsetroot -cursor_name X_cursor
 ./.fehbg &
 ctwm
