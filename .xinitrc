@@ -105,5 +105,6 @@ fi
 
 xsetroot -cursor_name X_cursor
 ./.fehbg &
+xclock -digital -strftime '%a %Y-%m-%d %H:%M' -face "JetBrains Mono:pixelsize=16" -g +0+0 &
 
 exec ctwm -W
