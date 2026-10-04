@@ -104,7 +104,7 @@ if [ -f "$usermodmap" ]; then
 fi
 
 xsetroot -cursor_name X_cursor
-./.fehbg &
+feh --no-fehbg --bg-fill $HOME/.config/walls/writing.png
 xclock -digital -strftime '%a %Y-%m-%d %H:%M' -face "JetBrains Mono:pixelsize=16" -g +0+0 &
 
 exec ctwm -W
