@@ -1,0 +1,7 @@
+1. install doas + /usr/pkg/etc/doas.conf
+2. install zsh + chsh /usr/pkg/bin/zsh
+        - zsh needs extra path vars, it doesn't propogate by default
+	- back up /usr/pkg/etc/zshenv
+3. clone xdots
+	- .xinitrc now starts the clock
+4. install git, feh, tree, ufetch, jetbrainsmono-ttf, alacritty
