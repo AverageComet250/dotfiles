@@ -5,7 +5,9 @@
     isNormalUser = true;
     description = "Shravan Mandava";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    packages = with pkgs; [
+      (pkgs.callPackage "${root}/rwall.nix" { inherit root; })
+    ];
   };
 
   # TODO: move to an authorizedKeys file
