@@ -68,7 +68,6 @@
   programs.nano.enable = false;
 
   programs.zsh.enable = true;
-  programs.zsh.promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme; [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh ";
 
   programs.git.enable = true;
 
