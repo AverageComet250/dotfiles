@@ -1,0 +1,6 @@
+path=(
+	~/bin
+	/{,s}bin
+	/usr/{{,s}bin,X11R7/bin,pkg/{,s}bin,games}
+	/usr/local/{,s}bin
+)
