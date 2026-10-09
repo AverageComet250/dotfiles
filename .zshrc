@@ -202,11 +202,11 @@ fi
 
 alias cll='clear && ll'
 alias open=xdg-open
-alias datem="date -I"
+alias datem="date '+%Y-%m-%d'"
 alias tenki="tenki --mode rain --wind only-right --show-fps --level 500"
 alias rm="rm -v"
 alias zat="zathura --fork"
-alias notes="nvim ~/vault/daily/$(date -I).md"
+alias notes="nvim ~/vault/daily/$(date '+%Y-%m-%d').md"
 
 export SUDO_PROMPT="[sudo] %u@%h ==> "
 export CMAKE_GENERATOR=Ninja
