@@ -53,6 +53,7 @@
   environment.systemPackages = with pkgs; [
     zsh-powerlevel10k
     librewolf
+    taskwarrior3
     tree-sitter
     ripgrep
     fzf
