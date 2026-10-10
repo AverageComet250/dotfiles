@@ -66,6 +66,9 @@
     hyfetch
   ];
 
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
+
   programs.nano.enable = false;
 
   programs.zsh.enable = true;
