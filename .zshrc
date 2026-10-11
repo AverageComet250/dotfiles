@@ -132,10 +132,6 @@ if (( $+commands[zoxide] )); then
     eval "$(zoxide init zsh --cmd cd)"
 fi
 
-if [[ -f "/usr/share/nvm/init-nvm.sh" ]]; then
-    source /usr/share/nvm/init-nvm.sh
-fi
-
 if (( $+commands[eza] )); then
     alias ls="eza --hyperlink=always"
     alias ll="eza -lbF --git --hyperlink --group-directories-first --icons=always"
