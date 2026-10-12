@@ -16,7 +16,7 @@ input {
             // For example:
             // layout "us,ru"
             // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
-            layout "us, us"
+            layout "gb, gb"
             variant ",colemak"
 
             // If this section is empty, niri will fetch xkb settings
