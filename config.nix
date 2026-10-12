@@ -58,6 +58,7 @@
     ripgrep
     fzf
     wget
+    dnsmasq
 
     spotify
 
@@ -68,6 +69,7 @@
 
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
+  networking.firewall.trustedInterfaces = [ "virbr0" ];
 
   programs.nano.enable = false;
 

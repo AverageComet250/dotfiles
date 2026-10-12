@@ -4,7 +4,7 @@
   users.users."comet" = {
     isNormalUser = true;
     description = "Shravan Mandava";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
     packages = with pkgs; [
       (pkgs.callPackage "${root}/rwall.nix" { inherit root; })
     ];
