@@ -7,6 +7,11 @@
       url = "github:feel-co/hjem";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    helium = {
+      url = "github:oxcl/nix-flake-helium-browser";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs: {
@@ -22,6 +27,7 @@
         ./users/comet.nix
         ./neovim.nix
         inputs.hjem.nixosModules.default
+        inputs.helium.nixosModules.default
       ];
     };
 
