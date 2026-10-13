@@ -81,6 +81,9 @@
     fzf
     wget
     dnsmasq
+    playerctl
+    python3
+    pwvucontrol
 
     spotify
 
