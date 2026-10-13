@@ -84,6 +84,7 @@
     playerctl
     python3
     pwvucontrol
+    nix-output-monitor
 
     spotify
 
