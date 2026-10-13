@@ -33,5 +33,6 @@
       ".config/nvim/lua".source = "${root}/.config/nvim/lua";
       ".config/nvim/init.lua".source = "${root}/.config/nvim/init.lua";
     };
+    clobberFiles = true;
   };
 }
