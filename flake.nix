@@ -9,7 +9,7 @@
     };
 
     helium = {
-      url = "github:oxcl/nix-flake-helium-browser";
+      url = "github:amaanq/helium-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -27,7 +27,11 @@
         ./users/comet.nix
         ./neovim.nix
         inputs.hjem.nixosModules.default
-        inputs.helium.nixosModules.default
+        { # TODO: move this to its own module
+          environment.systemPackages = [
+            inputs.helium.packages.x86_64-linux.default
+          ];
+        }
       ];
     };
 
@@ -43,6 +47,11 @@
         ./users/comet.nix
         ./neovim.nix
         inputs.hjem.nixosModules.default
+        { # TODO: move this to its own module
+          environment.systemPackages = [
+            inputs.helium.packages.x86_64-linux.default
+          ];
+        }
       ];
     };
   };
