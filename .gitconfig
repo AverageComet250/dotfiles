@@ -1,26 +1,15 @@
 [user]
 	email = shravan@mandava8.com
 	name = Shravan Mandava
-	signingkey = 1B36BDD854A7013A
 [core]
-	editor = nvim
-    pager = delta
+	editor = vim
 [init]
 	defaultBranch = main
 [merge]
-    conflictStyle = zdiff3
-[commit]
-	gpgsign = true
-[tag]
-	gpgSign = true
-[interactive]
-    diffFilter = delta --color-only
-[delta]
-    navigate = true  # use n and N to move between diff sections
-    dark = true      # or light = true, or omit for auto-detection
+	conflictStyle = zdiff3
 [alias]
 	graph = log --oneline --graph --all
 [diff]
-    tool = nvimdiff
+	tool = vimdiff
 	mnemonicprefix = true
 	algorithm = histogram
