@@ -171,7 +171,7 @@ fi
 
 if (( $+commands[nvim] )); then
     alias vim=nvim
-    export EDITOR='/usr/bin/nvim'
+    export EDITOR=$(which nvim)
 fi
 
 if (( $+commands[hyfetch] )); then
