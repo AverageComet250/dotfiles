@@ -17,7 +17,7 @@
   outputs = inputs: {
     nixosConfigurations."erzatz" = inputs.nixpkgs.lib.nixosSystem {
      specialArgs = {
-        root = ./.;
+        root = ./.; # TODO: use ${self} instead
       };
       modules = [
         ./hw/erzatz.nix
