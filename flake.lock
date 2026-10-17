@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792078832,
-        "narHash": "sha256-k8lRJtrKCMLytFBj4gSuziZQdkGKJswQ9MBbiu2Fx6k=",
+        "lastModified": 1792241650,
+        "narHash": "sha256-EDXCoZqcVVJiAicnrnjALsTIaZlSVunAnxSvCAhnaRA=",
         "owner": "amaanq",
         "repo": "helium-flake",
-        "rev": "11f936cf417fcb4d3751aa5eeefa46ff9d007232",
+        "rev": "75c11b0fd68503ea2d11ec642e4628634a8636cb",
         "type": "github"
       },
       "original": {
