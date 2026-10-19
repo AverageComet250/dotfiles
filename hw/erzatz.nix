@@ -37,6 +37,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.networkmanager.wifi.powersave = false;
 
   # Configure keymap in X11
   services.xserver.xkb = {
