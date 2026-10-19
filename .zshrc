@@ -203,6 +203,7 @@ alias tenki="tenki --mode rain --wind only-right --show-fps --level 500"
 alias rm="rm -v"
 alias zat="zathura --fork"
 alias notes="nvim ~/vault/daily/$(date '+%Y-%m-%d').md"
+alias tree=lt
 
 export SUDO_PROMPT="[sudo] %u@%h ==> "
 export CMAKE_GENERATOR=Ninja
