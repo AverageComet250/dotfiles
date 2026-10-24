@@ -38,10 +38,13 @@
     LC_TIME = "en_GB.UTF-8";
   };
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  nix.settings = {
+    auto-optimise-store = true;
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+  };
 
   programs.nh = {
     enable = true;
