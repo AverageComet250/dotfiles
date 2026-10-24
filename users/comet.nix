@@ -20,6 +20,7 @@
     files = {
       ".zshrc".text = builtins.replaceStrings ["/usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme"] ["${pkgs.zsh-powerlevel10k}/share/zsh/themes/powerlevel10k/powerlevel10k.zsh-theme"] (builtins.readFile "${root}/.zshrc");
       ".p10k.zsh".source = "${root}/.p10k.zsh";
+      ".tmux.conf".source = "${root}/.tmux.conf";
       ".config/hyfetch.json".source = "${root}/.config/hyfetch.json";
       ".config/hyfetch-mini.json".source = "${root}/.config/hyfetch-mini.json";
       ".config/hyfetch-mini.art".source = "${root}/.config/hyfetch-mini.art";

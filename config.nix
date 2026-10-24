@@ -102,6 +102,7 @@
     playerctl
     python3
     pwvucontrol
+    tmux
 
     spotify
 
