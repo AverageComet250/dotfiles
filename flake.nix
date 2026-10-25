@@ -8,16 +8,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    helium = {
-      url = "github:amaanq/helium-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    helium.url = "git+https://tangled.org/poacher.dev/helium-flake";
   };
 
   outputs = inputs: {
     nixosConfigurations."erzatz" = inputs.nixpkgs.lib.nixosSystem {
      specialArgs = {
         root = ./.; # TODO: use ${self} instead
+        inherit (inputs) helium;
       };
       modules = [
         ./hw/erzatz.nix
@@ -27,17 +25,13 @@
         ./users/comet.nix
         ./neovim.nix
         inputs.hjem.nixosModules.default
-        { # TODO: move this to its own module
-          environment.systemPackages = [
-            inputs.helium.packages.x86_64-linux.default
-          ];
-        }
       ];
     };
 
     nixosConfigurations."chalice" = inputs.nixpkgs.lib.nixosSystem {
      specialArgs = {
         root = ./.;
+        inherit (inputs) helium;
       };
       modules = [
         ./hw/chalice.nix
@@ -47,11 +41,6 @@
         ./users/comet.nix
         ./neovim.nix
         inputs.hjem.nixosModules.default
-        { # TODO: move this to its own module
-          environment.systemPackages = [
-            inputs.helium.packages.x86_64-linux.default
-          ];
-        }
       ];
     };
   };

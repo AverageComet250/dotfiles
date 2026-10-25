@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, helium, ... }:
 
 {
   # Use the systemd-boot EFI boot loader.
@@ -40,6 +40,8 @@
 
   nix.settings = {
     auto-optimise-store = true;
+    substituters = ["https://cache.poacher.dev/helium"];
+    trusted-public-keys = ["helium:30StiIr4aOLW446BMkKaE6r+NSdHoeIjJf437XgRY4k="];
     experimental-features = [
       "nix-command"
       "flakes"
@@ -91,7 +93,7 @@
 
   users.defaultUserShell = pkgs.zsh;
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = (with pkgs; [
     zsh-powerlevel10k
     taskwarrior3
     tree-sitter
@@ -109,7 +111,7 @@
     fastfetch
     macchina
     hyfetch
-  ];
+  ]) ++ [ helium.packages.${pkgs.system}.default ];
 
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;

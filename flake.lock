@@ -2,22 +2,20 @@
   "nodes": {
     "helium": {
       "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
+        "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1792674624,
-        "narHash": "sha256-1hqI63X3aUiPBZqodC1u78lcxiKz1TL2/cL7rdpyA1Q=",
-        "owner": "amaanq",
-        "repo": "helium-flake",
-        "rev": "2aa77b2f0cb27c486e27f37f9fcd1c6f826076ac",
-        "type": "github"
+        "lastModified": 1792902113,
+        "narHash": "sha256-tS4Dtmh/+Hl5WVClw+A1FvL7EbpEX+xavM1hL/164Ro=",
+        "ref": "refs/heads/main",
+        "rev": "7298467bb8ea2564a3ba7a7192952a8f20ad3213",
+        "revCount": 2,
+        "type": "git",
+        "url": "https://tangled.org/poacher.dev/helium-flake"
       },
       "original": {
-        "owner": "amaanq",
-        "repo": "helium-flake",
-        "type": "github"
+        "type": "git",
+        "url": "https://tangled.org/poacher.dev/helium-flake"
       }
     },
     "hjem": {
@@ -42,6 +40,22 @@
     },
     "nixpkgs": {
       "locked": {
+        "lastModified": 1792502884,
+        "narHash": "sha256-IoNisKcGbUjdd45qCqywGMCYmZ5EnkxezvLII0FWwNA=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "02c087f3fe673c9e317f206a627cb6b910336dbe",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
         "lastModified": 1792773339,
         "narHash": "sha256-17eNBI5Khe4JZaRkL5hRGPWf8MZ6qv+bWAr4V8YeKBw=",
         "rev": "3ec636362e1816bc2f0888fa0fa2c69f1bc9e504",
@@ -57,7 +71,7 @@
       "inputs": {
         "helium": "helium",
         "hjem": "hjem",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs_2"
       }
     }
   },
